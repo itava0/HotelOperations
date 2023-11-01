@@ -29,22 +29,14 @@ public class EmployeeTest {
     @Test
     public void testPunchIn() {
         LocalDateTime fakeTime = LocalDateTime.of(2023, 1, 1, 8, 0);
-        // Mock the time to a specific value for testing
-        // You may need to refactor your code to make it more testable, as DateTime manipulation can be tricky to test
-        // For now, I'm assuming you can modify the "timeNow" field for testing
         Employee.timeNow = fakeTime;
         Employee.punchIn();
-
-        // You may want to capture the output from System.out and assert it, but this example only checks for exceptions
     }
 
     @Test
     public void testPunchOut() {
         LocalDateTime fakeTime = LocalDateTime.of(2023, 1, 1, 17, 0);
-        // Mock the time to a specific value for testing
         Employee.timeNow = fakeTime;
         Employee.punchOut();
-
-        // You may want to capture the output from System.out and assert it, but this example only checks for exceptions
     }
 }
