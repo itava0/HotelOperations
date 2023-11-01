@@ -2,56 +2,64 @@ package com.pluralsight;
 
 public class Reservation {
     private String roomType;
-    private double price;
-    private int numberOfNights;
-    private boolean weekend;
-    private double reservationTotal;
+    private double reservationPrice;
+    private int numberNights;
+    private boolean weekendRes;
+    private double reservationTotalPrice;
 
-    public Reservation(String roomType, double price, int numberOfNights, boolean weekend, double reservationTotal) {
+    public Reservation(String roomType, double reservationPrice, int numberNights, boolean weekendRes, double reservationTotalPrice) {
         this.roomType = roomType;
-        this.price = price;
-        this.numberOfNights = numberOfNights;
-        this.weekend = weekend;
-        this.reservationTotal = reservationTotal;
+        this.reservationPrice = reservationPrice;
+        this.numberNights = numberNights;
+        this.weekendRes = weekendRes;
+        this.reservationTotalPrice = reservationTotalPrice;
     }
 
     public String getRoomType() {
         return roomType;
     }
 
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
+    public double setRoomType(String roomType) {
+        if (roomType.equalsIgnoreCase("king")) {
+            return reservationPrice = 139.00;
+        } else {
+            return reservationPrice = 124.00;
+        }
     }
 
-    public double getPrice() {
-        return price;
+    public double getReservationPrice() {
+        return reservationPrice * numberNights;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setReservationPrice(double reservationPrice) {
+        this.reservationPrice = reservationPrice;
     }
 
-    public int getNumberOfNights() {
-        return numberOfNights;
+    public int getNumberNights() {
+        return numberNights;
     }
 
-    public void setNumberOfNights(int numberOfNights) {
-        this.numberOfNights = numberOfNights;
+    public void setNumberNights(int numberNights) {
+        this.numberNights = numberNights;
     }
 
-    public boolean isWeekend() {
-        return weekend;
+    public boolean isWeekendRes() {
+        return weekendRes;
     }
 
-    public void setWeekend(boolean weekend) {
-        this.weekend = weekend;
+    public void setWeekendRes(boolean weekendRes) {
+        this.weekendRes = weekendRes;
     }
 
-    public double getReservationTotal() {
-        return reservationTotal;
+    public double getReservationTotalPrice() {
+        if (isWeekendRes()) {
+            return reservationPrice * .10;
+        } else {
+            return reservationPrice;
+        }
     }
 
-    public void setReservationTotal(double reservationTotal) {
-        this.reservationTotal = reservationTotal;
+    public void setReservationTotalPrice(double reservationTotalPrice) {
+        this.reservationTotalPrice = reservationTotalPrice;
     }
 }
